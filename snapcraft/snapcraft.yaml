@@ -1,8 +1,11 @@
 name: evdevshift
-version: 0.1
+version: 20160906-git
 summary: Allows to map events from one evdev device to newly created virtual one
 description: This program allows to map events from one evdev device to newly created virtual one. Buttons can be conditionaly remapped, and axes can be mapped to buttons (usefull to map hats to buttons).
-confinement: devmode  # use "strict" to enforce system access only via declared interfaces
+#confinement: devmode  # use "strict" to enforce system access only via declared interfaces
+
+#TODO: allow snap to access hardware device https://developer.ubuntu.com/en/snappy/guides/security-whitepaper/#h.4pkwvbfmqz4q
+
 
 apps:
   evdevshift:
@@ -10,7 +13,7 @@ apps:
 
 parts:
     evdevshift: 
-        plugin: make
+        plugin: autotools
         source: https://github.com/uglyDwarf/evdevshift
         source-type: git
         build-packages:
